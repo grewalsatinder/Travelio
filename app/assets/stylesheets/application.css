@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+/* resource for background image https://unsplash.com 
+   UNSPLASH LEGAL STUFF
+
+All photos published on Unsplash are licensed under Creative Commons Zero which means you can can copy, modify, distribute and use the photos, even for commercial purposes, all without asking permission.
+
+The presentation and collection of these images is copyrighted by Crew Labs Inc. (2014).
+
+*/
+body{
+	
+	background-image: url('desktop.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
