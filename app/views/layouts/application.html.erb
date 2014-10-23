@@ -14,6 +14,34 @@
        <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
+
+        <!-- Projects Row -->
+        <div class="row">
+            <div class="col-md-6 portfolio-item">
+                <a href="#">
+                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                    <a href="#">Events</a>
+                </h3>
+                <p>Click here for local events.</p>
+            </div>
+            <div class="col-md-6 portfolio-item">
+                <a href="#">
+                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                    <a href="#">Restaurants</a>
+                </h3>
+                <p>Click here to order food from your favourite restaurant.</p>
+            </div>
+        </div>
+  
+
+        
+
+      
+        <!-- /.row -->
       <%= yield %>
        <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>

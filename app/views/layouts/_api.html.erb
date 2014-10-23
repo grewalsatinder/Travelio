@@ -1,4 +1,4 @@
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_KEY'] %>"> 
+<script type="text/javascript" src="https://www.eventbriteapi.com/v3/events/10584525601/"> 
 </script>
 
 <script>
@@ -11,102 +11,12 @@ function initialize() {
       mapOptions);
   $.get('/api/groups').then(function(data) {
     for(var i=0; i < data.length; i++){
-      var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent(data[i].location)
+      var url = "https://www.eventbriteapi.com/v3/events/10584525601/" + encodeURIComponent(data[i].location)
       console.log(url)
       $.get(url).then((function(i) {
         return function(data2) {
-          var infowindow = new google.maps.InfoWindow({
-            content: '<div class="infowindow">' + data[i].topic + '</div>' + '<div class="infowindow">' + data[i].name + '</div>'
-          });
-          var marker = new google.maps.Marker({
-          position: data2.results[0].geometry.location,
-          map: map,
-          title: data[i].topic
-          });
-          google.maps.event.addListener(marker, 'mouseover', function() {
-            infowindow.open(map,marker);
-          });
-          google.maps.event.addListener(marker, 'mouseout', function() {
-            infowindow.close(map,marker);
-          });
-          google.maps.event.addListener(marker, 'click', function() {
-            window.location.href = "/groups/" + data[i].id;
-          });
-        };
-      })(i));
-    }
-  })
+      
 
-  if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-    var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-    var marker = new google.maps.Marker({
-      map: map,
-      position: pos,
-      title: 'You are here!',
-      icon: 'assets/smiley.png'
-    });
-    map.setCenter(pos);
-    }, function() {
-      handleNoGeolocation(true);
-    });
-  } else {  
-    handleNoGeolocation(false);
-  }
-
-  $('#search').click(function(e){
-    e.preventDefault();
-    $("#map-canvas").show("slow", function(){
-      google.maps.event.trigger(map,"resize")
-      if ($('#address').val() == ""){
-        if(navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-          var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-          map.setCenter(pos);
-          }, function() {
-            handleNoGeolocation(true);
-          });
-        } else {  
-          handleNoGeolocation(false);
-        }
-      } else {
-        var address = document.getElementById('address').value;
-        var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent(address)
-        console.log(url)
-        $.get(url).then(function(data) {
-          map.setCenter(data.results[0].geometry.location)
-          console.log(data.results[0].geometry.viewport.southwest)
-          var southwest = new google.maps.LatLng(data.results[0].geometry.viewport.southwest.lat,data.results[0].geometry.viewport.southwest.lng);
-          var northeast = new google.maps.LatLng(data.results[0].geometry.viewport.northeast.lat,data.results[0].geometry.viewport.northeast.lng);
-          console.log(southwest)
-          var bounds = new google.maps.LatLngBounds(southwest,northeast);
-          map.fitBounds(bounds);
-        });
-      }
-    });
-$('html, body').animate({
-        scrollTop: $("#search_form").offset().top - 45
-    }, 1000);
-// $(window).scrollTop(805)
-  });
-}
-
-function handleNoGeolocation(errorFlag) {
-  if (errorFlag) {
-    var content = 'Error: The Geolocation service failed.';
-  } else {
-    var content = 'Error: Your browser doesn\'t support geolocation.';
-  }
-  var options = {
-    map: map,
-    position: new google.maps.LatLng(60, 105),
-    content: content
-  };
-  var infowindow = new google.maps.InfoWindow(options);
-  map.setCenter(options.position);
-  }
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
 
 <!-- Search Button -->
 
