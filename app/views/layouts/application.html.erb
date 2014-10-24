@@ -16,26 +16,26 @@
       <% end %>
 
         <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-6 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-                <h3>
-                    <a href="#">Events</a>
-                </h3>
-                <p>Click here for local events.</p>
-            </div>
-            <div class="col-md-6 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-                <h3>
-                    <a href="#">Restaurants</a>
-                </h3>
-                <p>Click here to order food from your favourite restaurant.</p>
-            </div>
+    <div class="row">
+        <div class="col-md-6 portfolio-item">
+            <a href="#">
+                <img class="img-responsive" src="assets/clock.jpg" alt="">
+            </a>
+            <h3>
+                <%= link_to "Events", events_path %>
+            </h3>
+            <p>Click here for local events.</p>
         </div>
+        <div class="col-md-6 portfolio-item">
+            <a href="#">
+                <img class="img-responsive" src="assets/coffee.jpg" alt="">
+            </a>
+            <h3>
+                <%= link_to "Restaurants", restaurants_path %>
+            </h3>
+            <p>Click here to order food from your favourite restaurant.</p>
+        </div>
+    </div>
   
 
         

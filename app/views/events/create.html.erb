@@ -1,0 +1,47 @@
+<h2>Local Events!</h2>
+
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@event) do |f| %>
+
+      <%= f.label :category %>
+      <%= f.text_field :category, class: 'form-control' %>
+
+      <%= f.label :attendees %>
+      <%= f.text_field :attendees, class: 'form-control' %>
+
+      <%= f.label :organizer %>
+      <%= f.text_field :organizer, class: 'form-control' %>
+
+      <%= f.label :order %>
+      <%= f.text_field :order, class: 'form-control' %>
+
+      <%= f.label :subcategory, "Confirmation" %>
+      <%= f.text_field :subcategory, class: 'form-control' %> 
+
+      <%= f.label :venue, "Confirmation" %>
+      <%= f.text_field :venue, class: 'form-control' %>  
+
+      <%= f.label :event, "Confirmation" %>
+      <%= f.text_field :event, class: 'form-control' %> 
+
+      <%= f.label :user_id, "Confirmation" %>
+      <%= f.text_field :user_id, class: 'form-control' %>   
+
+      <%= f.label :created_at, "Confirmation" %>
+      <%= f.text_field :created_at, class: 'form-control' %>
+
+      <%= f.label :updated_at, "Confirmation" %>
+      <%= f.text_field :updated_at, class: 'form-control' %>
+
+      <%= f.label :picture, "Confirmation" %>
+      <%= f.text_field :picture, class: 'form-control' %>
+
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+
+    
+    </div>
+  </div>
+</div>

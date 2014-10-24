@@ -1,0 +1,10 @@
+<% if @result.businesses %>
+	<% @result.businesses.each do |b| %>
+	<li>
+		<%= b.name %>
+		<%= b.url %>
+		<%= b.location.display_address.join(", ") %>
+	</li>
+	<% end %>
+
+<% end %>

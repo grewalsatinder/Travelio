@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :events, dependent: :destroy
 	attr_accessor :remember_token
 	before_save { self.email = email.downcase }
 	validates :name,  presence: true, length: { maximum: 50 }
@@ -40,6 +41,10 @@ class User < ActiveRecord::Base
   # Forgets a user.
   def forget
     update_attribute(:remember_digest, nil)
+  end
+   def feed
+    # This is preliminary. See "Following users" for the full implementation.
+    Event.where("user_id = ?", id)
   end
 
 end

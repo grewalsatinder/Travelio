@@ -1,17 +1,29 @@
 Rails.application.routes.draw do
+  
+  root             'users#new'
+
+  get 'account_activations/edit'
+
   get 'sessions/new'
 
   get 'users/new'
+  get 'restaurants/' => 'restaurants#index'
+  get 'events/' => 'events#index'
 
-  root             'static_pages#home'
+
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
   get 'signup'  => 'users#new'
+
   get    'login'   => 'sessions#new'   #page for a new session (login)
   post   'login'   => 'sessions#create'    #create a new session (login)
   delete 'logout'  => 'sessions#destroy'   #delete a session (log out)
+
   resources :users
+  resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
+  resources :events,          only: [:create, :destroy]
 
 end
 

@@ -1,0 +1,43 @@
+
+    
+<div class="show">
+    <h1>Events!</h1>       
+    <div class="table-responsive">
+    <table class="table table-hover">
+        <tr class="info">
+              <th>category </th>
+              <th>attendees</th>
+              <th>organizer</th>
+              <th>order</th>
+              <th>subcategory</th>
+              <th>venue</th>
+              <th>event</th>
+              <th>user_id</th>
+              <th>created_at</th>
+              <th>updated_at</th>
+              <th>picture</th>
+        </tr>
+
+      <% @events.each do |e| %>
+
+        <tr class="active">
+            <td><%= e.category %></td>
+            <td><%= e.attendees %></td>
+            <td><%= e.organizer %></td>
+            <td><%= e.order %></td>
+            <td><%= e.subcategory %></td>
+            <td><%= e.venue %></td>
+            <td><%= e.event %></td>
+            <td><%= e.user_id %></td>
+            <td><%= e.created_at %></td>
+            <td><%= e.updated_at %></td>
+            <td><%= e.picture %></td>
+            <td><%= link_to "Show", event_path(e) %></td>
+
+        </tr>
+   
+ <% end %>
+   </table>
+
+    </div>
+</div>

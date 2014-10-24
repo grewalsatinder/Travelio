@@ -1,3 +1,8 @@
+
+#require_relative '/Users/satinderjitgrewal/GA/travelio/app/controllers/eventbrite-client.rb'
+
+#require 'httpparty'
+#require 'eventbrite-client'
 class UsersController < ApplicationController
     before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
     before_action :correct_user,   only: [:edit, :update]
@@ -9,11 +14,27 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @events = @user.events.paginate(page: params[:page])
   end
 
-  def new
+def new
+    #https://www.eventbriteapi.com/v3/event/137322539666357469979?token=X4C4LZD5Z5KGMM247V
+
+  #https://www.eventbrite.com/oauth/authorize?response_type=X4C4LZD5Z5KGMM247V&client_id=137322539666357469979
     @user = User.new
-  end
+    #get_yelp
+# Yelp.client.configure do |config|
+#     config.consumer_key = 'ixyt_bjUYeF_yt2econ_VA'
+#     config.consumer_secret = 'XWksqiV25p5uJdIPohMoQR5MuCk'
+#     config.token = '-fRPXkOtQjFHyDs-fNwMYNXKX6VyUAqN'
+#     config.token_secret = 'FdBq7SogS5R7NVyPPGRgCt2pb80'
+#  end
+ # Yelp.client.search('San Francisco', { term: 'food' })
+end
+
+
+
+ 
  def create
     @user = User.new(user_params)
     if @user.save
@@ -78,4 +99,7 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
-end
+  
+ end
+
+
