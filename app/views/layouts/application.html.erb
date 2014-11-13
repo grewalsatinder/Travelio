@@ -10,41 +10,9 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <div class="container">
-       <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
-
-        <!-- Projects Row -->
-    <div class="row">
-        <div class="col-md-6 portfolio-item">
-            <a href="#">
-                <img class="img-responsive" src="assets/clock.jpg" alt="">
-            </a>
-            <h3>
-                <%= link_to "Events", events_path %>
-            </h3>
-            <p>Click here for local events.</p>
-        </div>
-        <div class="col-md-6 portfolio-item">
-            <a href="#">
-                <img class="img-responsive" src="assets/coffee.jpg" alt="">
-            </a>
-            <h3>
-                <%= link_to "Restaurants", restaurants_path %>
-            </h3>
-            <p>Click here to order food from your favourite restaurant.</p>
-        </div>
-    </div>
-  
-
-        
-
-      
-        <!-- /.row -->
       <%= yield %>
        <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
+      <!-- <%= debug(params) if Rails.env.development? %> -->
     </div>
     </div>
   </body>

@@ -1,19 +1,11 @@
 Rails.application.routes.draw do
-  
-  root             'users#new'
 
+
+  root  'static_pages#home'
   get 'account_activations/edit'
-
-  get 'sessions/new'
-
-  get 'users/new'
-  get 'restaurants/' => 'restaurants#index'
-  get 'events/' => 'events#index'
-
-
-  get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
+  get 'home' => 'static_pages#home'
   get 'signup'  => 'users#new'
 
   get    'login'   => 'sessions#new'   #page for a new session (login)
@@ -23,8 +15,10 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :events,          only: [:create, :destroy]
-
+  resources :events
+  resources :restaurants
+  resources :promotions
+  resources :shopping
 end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,24 @@
+
+    
+<div class="show">
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Current Event!</h1>   
+    <% @events.each do |e| %>    
+          <strong>category:</strong><%= e.category %><br />
+          <strong>attendees:</strong><%= e.attendees %><br />
+          <strong>organizer:</strong><%= e.organizer %><br />
+          <strong>order:</strong><%= e.order %><br />
+          <strong>subcategory:</strong><%= e.subcategory %><br />
+          <strong>venue:</strong> <%= e.venue %><br />
+          <strong>event:</strong><%= e.event %><br />
+          <strong>user_id:</strong> <%= e.user_id %><br /><br />
+          <strong>created_at:</strong> <%= e.created_at %><br /><br />
+          <strong>updated_at:</strong> <%= e.updated_at %><br /><br />
+          <strong>picture:</strong> <%= e.picture %><br /><br />
+    </div>
+       <p><%= link_to "Show", event_path(e) %></p>
+       <p><%= link_to "Delete", e, method: :delete, data: { confirm: 'Are you sure?' } </p>
+ <% end %>
+</div>
+</div>

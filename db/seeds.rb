@@ -29,11 +29,11 @@
 
 events = Event.create([
   {
-    category: 'adfs',
+    category: 'Fair',
     attendees: '130',
     organizer: 'Robert Natata',
-    order: 'sdag',
-    subcategory: 'asg',
+    order: '001',
+    subcategory: 'exibation',
     venue: '673457 N Newyok Ave, NY',
     event: 'art',
     user_id: '13223',
@@ -42,29 +42,70 @@ events = Event.create([
     picture: ''
   },
   {
-    category: 'adfs',
-    attendees: '130',
-    organizer: 'Robert Natata',
-    order: 'sdag',
-    subcategory: 'asg',
-    venue: '673457 N Newyok Ave, NY',
-    event: 'art',
-    user_id: '13223',
+    category: 'Sports',
+    attendees: '1200',
+    organizer: 'Jhon Methew',
+    order: '003',
+    subcategory: 'soccer',
+    venue: '837 N hudson Ave, OT',
+    event: 'fun',
+    user_id: '146546',
     created_at: '',
     updated_at: '',
     picture: ''
   },
   {
-   category: 'adfs',
-    attendees: '130',
-    organizer: 'Robert Natata',
-    order: 'sdag',
-    subcategory: 'asg',
-    venue: '673457 N Newyok Ave, NY',
-    event: 'art',
-    user_id: '13223',
+   category: 'car show',
+    attendees: '2560',
+    organizer: 'Micah Rich',
+    order: '005',
+    subcategory: 'Luxrey',
+    venue: '53 N caralona Ave, CA',
+    event: 'Show',
+    user_id: '4325437',
     created_at: '',
     updated_at: '',
     picture: ''
   }
   ])
+
+promotions = Promotion.create([
+  {
+    food: 'Chinese',
+    health: 'GoldGym',
+    education: 'Science',
+    tech: 'hardware',
+    gear: 'headphones'
+},{
+    food: 'Indian',
+    health: 'LAFitness',
+    education: 'Mathematics',
+    tech: 'software',
+    gear: 'computers'
+},{
+    food: 'Continental',
+    health: '24x7',
+    education: 'Spanish',
+    tech: 'Mobile',
+    gear: 'Gps'
+}
+])
+
+shopping = Shopping.create([
+  {
+    suvenir: 'keychains',
+    gifts: 'perfume',
+    tshirts: 'branded',
+    mugs: 'with signs'
+    }, {
+    suvenir: 'pictures',
+    gifts: 'jewelary',
+    tshirts: 'city name',
+    mugs: 'with picture'
+    }, {
+    suvenir: 'sculptures',
+    gifts: 'pen',
+    tshirts: 'printed',
+    mugs: 'with designe'
+    }
+])

@@ -1,10 +1,24 @@
-<% if @result.businesses %>
-	<% @result.businesses.each do |b| %>
-	<li>
-		<%= b.name %>
-		<%= b.url %>
-		<%= b.location.display_address.join(", ") %>
-	</li>
+<br /><br /><br /><br />
+<h2> List of Restaurants near by you</h2>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+	<% if @result.businesses %>
+		<% @result.businesses.each do |b| %>
+   <div class="table-responsive">
+    <table class="table table-hover">
+       <tr class="info">
+       <th>Name</th>
+		<th>URL</th>
+		<th>Location</th>
+		</tr>
+       <tr class="info">
+		    <td><%= b.name %></td>
+			<td><%= b.url %></td>
+			<td><%= b.location.display_address.join(", ") %></td>
+			</tr>
+	</table>
+    </div>
+		<% end %>
 	<% end %>
-
-<% end %>
+	</div>
+</div>
